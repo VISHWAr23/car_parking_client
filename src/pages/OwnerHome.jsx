@@ -10,10 +10,13 @@ import DailySummary from '@/components/dashboard/DailySummary'
 export default function OwnerHome() {
   const sessions = useStore((s) => s.sessions)
   const history  = useStore((s) => s.history)
+  const dailyStats = useStore((s) => s.dailyStats)
+  const parkingLoading = useStore((s) => s.parkingLoading)
+  const parkingError = useStore((s) => s.parkingError)
   const clock    = useLiveClock()
 
   const { pct, status } = useCapacity()
-  const totalRevenue    = history.reduce((acc, h) => acc + (h.rentAmount ?? 0), 0)
+  const totalRevenue = dailyStats?.summary?.totalRevenue ?? history.reduce((acc, h) => acc + (h.rentAmount ?? 0), 0)
 
   const capacityColor =
     status === 'critical' ? 'rose'  :
@@ -56,6 +59,24 @@ export default function OwnerHome() {
             color={capacityColor}
           />
         </div>
+
+        {parkingLoading && (
+          <div
+            className="rounded-xl px-3 py-2.5 text-xs"
+            style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)', color: 'var(--text-secondary)' }}
+          >
+            Syncing live parking data from server...
+          </div>
+        )}
+
+        {parkingError && (
+          <div
+            className="rounded-xl px-3 py-2.5 text-xs"
+            style={{ background: 'var(--rose-dim)', border: '1px solid var(--rose-border)', color: 'rgb(252 165 165)' }}
+          >
+            {parkingError}
+          </div>
+        )}
 
         {/* Live Feed */}
         <div>

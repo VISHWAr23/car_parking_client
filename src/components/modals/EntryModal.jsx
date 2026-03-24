@@ -11,8 +11,6 @@ const PHOTO_SIDES = [
   { key: 'right', label: 'Right Side' },
 ]
 
-const toPhotoMeta = (file) => (file ? { name: file.name, url: URL.createObjectURL(file) } : null)
-
 export default function EntryModal({ onClose }) {
   const addSession = useStore((s) => s.addSession)
 
@@ -39,7 +37,7 @@ export default function EntryModal({ onClose }) {
   const handleSidePhoto = (side, file) => {
     setCarPhotos((prev) => ({
       ...prev,
-      [side]: toPhotoMeta(file),
+      [side]: file || null,
     }))
     setError('')
   }
@@ -52,20 +50,18 @@ export default function EntryModal({ onClose }) {
     }
 
     setLoading(true)
-    await new Promise((resolve) => setTimeout(resolve, 550))
-
-    const success = addSession({
+    const result = await addSession({
       plate,
       customerName,
       phoneNumber,
-      rcBookPhoto: rcBookPhoto.name,
-      carPhotos,
+      rcBookPhotoFile: rcBookPhoto,
+      carPhotoFiles: carPhotos,
     })
 
     setLoading(false)
 
-    if (!success) {
-      setError('Parking lot is full. No available slots for new entry.')
+    if (!result.success) {
+      setError(result.message)
       return
     }
 

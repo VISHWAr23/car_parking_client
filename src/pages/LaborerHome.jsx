@@ -12,6 +12,8 @@ import { cx } from '@/utils'
 
 export default function LaborerHome() {
   const sessions     = useStore((s) => s.sessions)
+  const parkingLoading = useStore((s) => s.parkingLoading)
+  const parkingError = useStore((s) => s.parkingError)
   const sessionViewMode = useStore((s) => s.sessionViewMode)
   const setSessionViewMode = useStore((s) => s.setSessionViewMode)
   const { occupied, total, pct, status } = useCapacity()
@@ -119,6 +121,24 @@ export default function LaborerHome() {
                 </span>
               </div>
             </div>
+
+            {parkingLoading && (
+              <div
+                className="mb-3 rounded-xl px-3 py-2.5 text-xs"
+                style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border-subtle)', color: 'var(--text-secondary)' }}
+              >
+                Syncing live parking records...
+              </div>
+            )}
+
+            {parkingError && (
+              <div
+                className="mb-3 rounded-xl px-3 py-2.5 text-xs"
+                style={{ background: 'var(--rose-dim)', border: '1px solid var(--rose-border)', color: 'rgb(252 165 165)' }}
+              >
+                {parkingError}
+              </div>
+            )}
 
             {sessions.length === 0 ? (
               <EmptyState

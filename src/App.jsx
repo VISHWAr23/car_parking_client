@@ -18,6 +18,7 @@ export default function App() {
   const tab  = useStore((s) => s.tab)
   const isAuthenticated = useStore((s) => s.isAuthenticated)
   const authLoading = useStore((s) => s.authLoading)
+  const parkingError = useStore((s) => s.parkingError)
   const bootstrapAuth = useStore((s) => s.bootstrapAuth)
   const roleLabel = role === ROLES.OWNER ? 'Owner' : 'Operator'
 
@@ -74,6 +75,15 @@ export default function App() {
         </div>
 
         {/* Page content */}
+        {parkingError && (
+          <div
+            className="mx-4 mt-3 rounded-xl px-3 py-2 text-xs"
+            style={{ background: 'var(--rose-dim)', border: '1px solid var(--rose-border)', color: 'rgb(252 165 165)' }}
+          >
+            {parkingError}
+          </div>
+        )}
+
         {renderPage()}
 
         {/* Persistent bottom navigation */}

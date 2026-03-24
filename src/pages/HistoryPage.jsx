@@ -59,7 +59,7 @@ export default function HistoryPage() {
                   <Badge variant={typeVariant}>{h.type}</Badge>
                 </div>
                 <p className="text-[11px] text-[var(--text-secondary)] mb-1 truncate">
-                  {h.customerName} · +91 {h.phoneNumber}
+                  {h.customerName} · {h.phoneNumber}
                 </p>
                 <div className="flex items-center gap-2">
                   <span className="flex items-center gap-1 text-[11px] text-[var(--text-muted)]">

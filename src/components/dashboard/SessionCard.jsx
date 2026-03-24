@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { LogOut, Clock, MapPin } from 'lucide-react'
 import { useStore } from '@/store/useStore'
 import { calculateParkingDays, calculateRentAmount } from '@/utils'
@@ -11,9 +12,16 @@ import { cx } from '@/utils'
  */
 export default function SessionCard({ session, viewMode = 'list' }) {
   const checkout = useStore((s) => s.checkoutSession)
+  const [isCheckingOut, setIsCheckingOut] = useState(false)
   const parkedDays = calculateParkingDays(session.entryDate)
   const projectedRent = calculateRentAmount(session.entryDate, session.rentPerDay)
   const frontPhotoUrl = session.carPhotos?.front?.url || null
+
+  const handleCheckout = async () => {
+    setIsCheckingOut(true)
+    await checkout(session.id)
+    setIsCheckingOut(false)
+  }
 
   const typeVariant = 'sky'
 
@@ -43,7 +51,7 @@ export default function SessionCard({ session, viewMode = 'list' }) {
             <Badge variant={typeVariant}>{session.type}</Badge>
           </div>
           <p className="font-mono text-xs tracking-widest text-[var(--text-secondary)] truncate">{session.plate}</p>
-          <p className="text-[11px] text-[var(--text-muted)] mt-1 truncate">+91 {session.phoneNumber}</p>
+          <p className="text-[11px] text-[var(--text-muted)] mt-1 truncate">{session.phoneNumber}</p>
 
           <div className="flex items-center gap-3 mt-2">
             <span className="flex items-center gap-1 text-[11px] text-[var(--text-muted)]">
@@ -60,12 +68,13 @@ export default function SessionCard({ session, viewMode = 'list' }) {
           <p className="text-xs text-emerald-300 mt-2">Projected rent ₹{projectedRent}</p>
 
           <button
-            onClick={() => checkout(session.id)}
+            onClick={handleCheckout}
+            disabled={isCheckingOut}
             className="mt-3 w-full flex items-center justify-center gap-1.5 text-rose-400 text-xs font-bold px-3 py-2 rounded-xl transition-all active:scale-95"
             style={{ background: 'var(--rose-dim)', border: '1px solid var(--rose-border)' }}
           >
             <LogOut className="w-3.5 h-3.5" />
-            Exit & Bill
+            {isCheckingOut ? 'Processing...' : 'Exit & Bill'}
           </button>
         </div>
       </div>
@@ -109,20 +118,21 @@ export default function SessionCard({ session, viewMode = 'list' }) {
           </span>
         </div>
         <p className="text-[11px] text-[var(--text-muted)] mt-1 truncate">
-          +91 {session.phoneNumber} · Projected rent ₹{projectedRent}
+          {session.phoneNumber} · Projected rent ₹{projectedRent}
         </p>
       </div>
 
       {/* Checkout */}
       <button
-        onClick={() => checkout(session.id)}
+        onClick={handleCheckout}
+        disabled={isCheckingOut}
         className={cx(
           'flex items-center gap-1.5 text-rose-400 text-xs font-bold px-3 py-2 rounded-xl transition-all active:scale-95 flex-shrink-0',
         )}
         style={{ background: 'var(--rose-dim)', border: '1px solid var(--rose-border)' }}
       >
         <LogOut className="w-3.5 h-3.5" />
-        Exit & Bill
+        {isCheckingOut ? 'Processing...' : 'Exit & Bill'}
       </button>
     </div>
   )
