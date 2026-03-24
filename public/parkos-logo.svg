@@ -1,0 +1,13 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="parkosGradient" x1="16" y1="12" x2="112" y2="116" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#10B981"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="#0B1220"/>
+  <rect x="8" y="8" width="112" height="112" rx="28" stroke="url(#parkosGradient)" stroke-width="4"/>
+  <path d="M44 92V36H68C81.2548 36 92 46.7452 92 60C92 73.2548 81.2548 84 68 84H54" stroke="url(#parkosGradient)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M35 48H58" stroke="#22D3EE" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="80" cy="49" r="6" fill="#10B981"/>
+</svg>
