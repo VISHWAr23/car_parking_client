@@ -24,7 +24,7 @@ export default function HistoryPage() {
         )}
       </PageHeader>
 
-      <div className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-2.5 px-4 pb-28 pt-5 sm:px-6 lg:px-8 lg:pb-24">
+      <div className="with-bottom-nav-padding mx-auto flex w-full max-w-5xl flex-1 flex-col gap-2.5 px-4 pt-5 sm:px-6 lg:px-8">
         {history.length === 0 && (
           <EmptyState
             Icon={History}

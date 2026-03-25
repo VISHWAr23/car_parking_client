@@ -34,7 +34,7 @@ export default function LaborerHome() {
         </div>
       </PageHeader>
 
-      <div className="flex flex-1 flex-col gap-5 px-4 pb-28 pt-5 sm:px-6 lg:px-8 lg:pb-24">
+      <div className="with-bottom-nav-padding flex flex-1 flex-col gap-5 px-4 pt-5 sm:px-6 lg:px-8">
         <div className="grid gap-5 lg:grid-cols-[minmax(280px,360px)_minmax(0,1fr)]">
           <div className="flex flex-col gap-5">
             {/* Slot Counter */}

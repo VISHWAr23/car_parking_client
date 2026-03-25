@@ -32,6 +32,9 @@
     --sky-vivid:     #58a6ff;
     --sky-dim:       rgba(88,166,255,0.12);
     --sky-border:    rgba(88,166,255,0.30);
+
+    --bottom-nav-height-mobile: 72px;
+    --bottom-nav-height-desktop: 86px;
   }
 
   * {
@@ -134,4 +137,15 @@
 
   /* Bottom nav safe area */
   .safe-bottom { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+  /* Shared content inset so fixed bottom nav never covers page content. */
+  .with-bottom-nav-padding {
+    padding-bottom: calc(var(--bottom-nav-height-mobile) + env(safe-area-inset-bottom, 0px) + 20px);
+  }
+
+  @media (min-width: 1024px) {
+    .with-bottom-nav-padding {
+      padding-bottom: calc(var(--bottom-nav-height-desktop) + 20px);
+    }
+  }
 }

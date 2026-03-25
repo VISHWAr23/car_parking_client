@@ -33,7 +33,7 @@ export default function OwnerHome() {
         </span>
       </PageHeader>
 
-      <div className="flex flex-1 flex-col gap-5 px-4 pb-28 pt-5 sm:px-6 lg:px-8 lg:pb-24">
+      <div className="with-bottom-nav-padding flex flex-1 flex-col gap-5 px-4 pt-5 sm:px-6 lg:px-8">
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
