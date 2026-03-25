@@ -2,10 +2,8 @@ export const TOTAL_SLOTS = 20
 
 export const VEHICLE_TYPES = ['Car']
 
-const parsedDailyRent = Number(import.meta.env.VITE_DAILY_RENT)
-export const DAILY_RENT_PER_DAY = Number.isFinite(parsedDailyRent) && parsedDailyRent > 0
-  ? parsedDailyRent
-  : 250
+export const MONTHLY_RENT_PER_CAR = 1100
+export const BILLING_CYCLE_DAYS = 30
 
 export const ROLES = {
   LABORER: 'laborer',

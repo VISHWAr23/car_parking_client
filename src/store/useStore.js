@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { DAILY_RENT_PER_DAY, TOTAL_SLOTS, ROLES, TABS } from '@/constants'
+import { MONTHLY_RENT_PER_CAR, TOTAL_SLOTS, ROLES, TABS } from '@/constants'
 import { formatTime, calculateParkingDays, calculateRentAmount } from '@/utils'
 import { authApi, authTokenStorage } from '@/services/authApi'
 import { parkingApi } from '@/services/parkingApi'
@@ -40,16 +40,16 @@ const toSessionModel = (log) => {
       left: toPhotoMeta(log.leftPhotoUrl, 'left-photo.jpg'),
       right: toPhotoMeta(log.rightPhotoUrl, 'right-photo.jpg'),
     },
-    rentPerDay: Number(log.dailyRate) || DAILY_RENT_PER_DAY,
+    monthlyRent: MONTHLY_RENT_PER_CAR,
   }
 }
 
 const toHistoryModel = (log) => {
   const entryDate = new Date(log.entryTime)
   const exitDate = log.exitTime ? new Date(log.exitTime) : new Date()
-  const rentPerDay = Number(log.dailyRate) || DAILY_RENT_PER_DAY
+  const monthlyRent = MONTHLY_RENT_PER_CAR
   const parkedDays = Number(log.parkedDays) || calculateParkingDays(entryDate, exitDate)
-  const rentAmount = Number(log.totalAmount) || calculateRentAmount(entryDate, rentPerDay, exitDate)
+  const rentAmount = Number(log.totalAmount) || calculateRentAmount(entryDate, monthlyRent, exitDate)
 
   return {
     id: log.id,
@@ -63,7 +63,7 @@ const toHistoryModel = (log) => {
     entryTime: formatTime(entryDate),
     exitTime: formatTime(exitDate),
     parkedDays,
-    rentPerDay,
+    monthlyRent,
     rentAmount,
   }
 }
@@ -294,7 +294,6 @@ export const useStore = create((set, get) => ({
         vehicleType: 'CAR',
         customerName: customerName.trim(),
         phoneNumber: phoneNumber.trim(),
-        dailyRate: DAILY_RENT_PER_DAY,
         rcBookPhoto: rcBookPhotoFile,
         frontPhoto: carPhotoFiles?.front || null,
         rearPhoto: carPhotoFiles?.rear || null,

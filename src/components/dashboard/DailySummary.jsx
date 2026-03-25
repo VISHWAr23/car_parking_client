@@ -14,7 +14,7 @@ export default function DailySummary({ sessions, history }) {
   const totalCash    = history.reduce((acc, h) => acc + (h.rentAmount ?? 0), 0)
   const avgFee       = totalExits > 0 ? Math.round(totalCash / totalExits) : 0
   const projectedMonthEnd = sessions.reduce(
-    (acc, s) => acc + calculateRentAmount(s.entryDate, s.rentPerDay),
+    (acc, s) => acc + calculateRentAmount(s.entryDate, s.monthlyRent),
     0,
   )
 

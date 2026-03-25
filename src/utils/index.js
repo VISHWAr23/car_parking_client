@@ -1,4 +1,5 @@
 import { format } from 'date-fns'
+import { BILLING_CYCLE_DAYS, MONTHLY_RENT_PER_CAR } from '@/constants'
 
 /** Format a Date to "HH:mm a" string */
 export const formatTime = (date = new Date()) =>
@@ -25,9 +26,15 @@ export const calculateParkingDays = (entryDate, exitDate = new Date()) => {
   return Math.max(1, Math.ceil((end - start) / dayMs))
 }
 
-/** Calculate rent by parked days and daily rate */
-export const calculateRentAmount = (entryDate, dailyRate, exitDate = new Date()) =>
-  calculateParkingDays(entryDate, exitDate) * dailyRate
+/** Calculate prorated rent using fixed monthly plan (rounded to nearest rupee). */
+export const calculateRentAmount = (
+  entryDate,
+  monthlyRent = MONTHLY_RENT_PER_CAR,
+  exitDate = new Date(),
+) => {
+  const parkedDays = calculateParkingDays(entryDate, exitDate)
+  return Math.round((parkedDays * monthlyRent) / BILLING_CYCLE_DAYS)
+}
 
 /** Merge class names (lightweight clsx-style) */
 export const cx = (...classes) =>

@@ -17,12 +17,9 @@ export default function BottomNav() {
     <nav className="fixed inset-x-0 bottom-0 z-40 safe-bottom pointer-events-none">
       {/* Mobile: floating bottom bar */}
       <div
-        className="mx-auto mb-2 flex h-[var(--bottom-nav-height-mobile)] w-[calc(100%-1rem)] max-w-lg items-center justify-around rounded-2xl px-2 sm:w-[calc(100%-1.5rem)] lg:hidden pointer-events-auto"
+        className="mobile-nav-performance mx-auto mb-2 flex h-[var(--bottom-nav-height-mobile)] w-[calc(100%-1rem)] max-w-lg items-center justify-around rounded-2xl px-2 sm:w-[calc(100%-1.5rem)] lg:hidden pointer-events-auto"
         style={{
-          background: 'rgba(13, 17, 23, 0.92)',
           border: '1px solid var(--border-default)',
-          boxShadow: '0 10px 24px rgba(0,0,0,0.28)',
-          backdropFilter: 'blur(6px)',
         }}
       >
         {NAV_ITEMS.map(({ id, label, Icon }) => {
@@ -51,12 +48,9 @@ export default function BottomNav() {
       {/* Desktop: centered rounded floating nav */}
       <div className="hidden lg:flex justify-center pb-4 pointer-events-none">
         <div
-          className="pointer-events-auto inline-flex h-[var(--bottom-nav-height-desktop)] items-center gap-1 rounded-2xl px-2"
+          className="mobile-nav-performance pointer-events-auto inline-flex h-[var(--bottom-nav-height-desktop)] items-center gap-1 rounded-2xl px-2"
           style={{
-            background: 'rgba(13, 17, 23, 0.92)',
             border: '1px solid var(--border-default)',
-            boxShadow: '0 12px 28px rgba(0,0,0,0.3)',
-            backdropFilter: 'blur(8px)',
           }}
         >
           {NAV_ITEMS.map(({ id, label, Icon }) => {

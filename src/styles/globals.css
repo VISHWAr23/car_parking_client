@@ -153,6 +153,32 @@
     }
   }
 
+  .mobile-header-performance {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .mobile-nav-performance {
+    background: var(--bg-surface);
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  @media (min-width: 1024px) {
+    .mobile-header-performance {
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .mobile-nav-performance {
+      background: rgba(13, 17, 23, 0.92);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+  }
+
   @media (max-width: 1023px) {
     .animate-pulse-ring {
       animation-duration: 2.6s;

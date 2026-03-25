@@ -47,7 +47,6 @@ export const parkingApi = {
     vehicleType,
     customerName,
     phoneNumber,
-    dailyRate,
     rcBookPhoto,
     frontPhoto,
     rearPhoto,
@@ -59,7 +58,6 @@ export const parkingApi = {
     appendIfPresent(formData, 'vehicleType', vehicleType)
     appendIfPresent(formData, 'customerName', customerName)
     appendIfPresent(formData, 'phoneNumber', phoneNumber)
-    appendIfPresent(formData, 'dailyRate', dailyRate)
 
     appendFileIfPresent(formData, 'rcBookPhoto', rcBookPhoto)
     appendFileIfPresent(formData, 'frontPhoto', frontPhoto)

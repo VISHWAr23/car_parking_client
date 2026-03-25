@@ -14,7 +14,7 @@ export default function SessionCard({ session, viewMode = 'list' }) {
   const checkout = useStore((s) => s.checkoutSession)
   const [isCheckingOut, setIsCheckingOut] = useState(false)
   const parkedDays = calculateParkingDays(session.entryDate)
-  const projectedRent = calculateRentAmount(session.entryDate, session.rentPerDay)
+  const projectedRent = calculateRentAmount(session.entryDate, session.monthlyRent)
   const frontPhotoUrl = session.carPhotos?.front?.url || null
 
   const handleCheckout = async () => {

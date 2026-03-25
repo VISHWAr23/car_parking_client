@@ -75,7 +75,7 @@ export default function HistoryPage() {
                   </span>
                 </div>
                 <p className="text-[10px] text-[var(--text-muted)] mt-1">
-                  {h.parkedDays ?? 1} day{(h.parkedDays ?? 1) > 1 ? 's' : ''} @ ₹{h.rentPerDay ?? 0}/day
+                  {h.parkedDays ?? 1} day{(h.parkedDays ?? 1) > 1 ? 's' : ''} on monthly plan
                 </p>
               </div>
 

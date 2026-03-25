@@ -8,8 +8,8 @@ export default function PageHeader({ eyebrow, title, children, className }) {
   return (
     <header
       className={cx(
-        'sticky top-0 z-30 px-4 pb-4 pt-10 sm:px-6 sm:pt-11 lg:px-8',
-        'backdrop-blur-sm lg:backdrop-blur-xl',
+        'relative z-30 px-4 pb-4 pt-10 sm:px-6 sm:pt-11 lg:sticky lg:top-0 lg:px-8',
+        'mobile-header-performance',
         className,
       )}
       style={{

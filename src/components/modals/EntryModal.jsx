@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { X, LogIn, FileImage, AlertCircle, CircleCheck } from 'lucide-react'
-import { DAILY_RENT_PER_DAY } from '@/constants'
+import { BILLING_CYCLE_DAYS, MONTHLY_RENT_PER_CAR } from '@/constants'
 import { useStore } from '@/store/useStore'
 import { cx } from '@/utils'
 
@@ -218,11 +218,11 @@ export default function EntryModal({ onClose }) {
             style={{ background: 'var(--bg-overlay)', border: '1px solid var(--border-subtle)' }}
           >
             <div className="flex items-center justify-between">
-              <span className="text-xs text-[var(--text-secondary)]">Daily Rent Policy</span>
-              <span className="font-display text-sm font-bold text-emerald-400">₹{DAILY_RENT_PER_DAY} / day</span>
+              <span className="text-xs text-[var(--text-secondary)]">Monthly Rent Policy</span>
+              <span className="font-display text-sm font-bold text-emerald-400">₹{MONTHLY_RENT_PER_CAR} / month</span>
             </div>
             <p className="mt-1 text-[11px] text-[var(--text-muted)] leading-relaxed">
-              Final rent is calculated by parked days and collected at month-end or at exit.
+              Rent is prorated by parked days using a {BILLING_CYCLE_DAYS}-day billing cycle and collected at exit.
             </p>
           </div>
 

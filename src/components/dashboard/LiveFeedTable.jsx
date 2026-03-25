@@ -33,7 +33,7 @@ export default function LiveFeedTable({ sessions }) {
       {sessions.map((s, i) => {
         const typeVariant = 'sky'
         const parkedDays = calculateParkingDays(s.entryDate)
-        const projectedRent = calculateRentAmount(s.entryDate, s.rentPerDay)
+        const projectedRent = calculateRentAmount(s.entryDate, s.monthlyRent)
 
         return (
           <div
