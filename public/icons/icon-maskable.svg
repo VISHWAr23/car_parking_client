@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="ParkOS maskable icon">
+  <rect width="512" height="512" fill="#030712" />
+  <rect x="64" y="64" width="384" height="384" rx="64" fill="#16213e" />
+  <rect x="64" y="64" width="384" height="64" rx="32" fill="#22c55e" />
+  <path d="M180 150h104c58 0 104 44 104 98 0 50-40 92-94 97l72 102h-76l-66-98h-40v98h-64V150Zm64 55v89h36c25 0 44-20 44-45s-19-44-44-44h-36Z" fill="#f8fafc" />
+</svg>
