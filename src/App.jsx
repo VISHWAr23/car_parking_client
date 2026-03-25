@@ -28,7 +28,7 @@ export default function App() {
 
   if (authLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: 'var(--bg-primary)' }}>
+      <div className="flex min-h-[100dvh] items-center justify-center" style={{ background: 'var(--bg-primary)' }}>
         <div className="flex flex-col items-center gap-3">
           <div className="w-12 h-12 rounded-2xl skeleton" />
           <p className="text-xs uppercase tracking-[0.16em] text-[var(--text-muted)]">Securing session</p>
@@ -49,17 +49,21 @@ export default function App() {
   }
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden" style={{ background: 'var(--bg-primary)' }}>
+    <div className="relative min-h-[100dvh] overflow-x-hidden" style={{ background: 'var(--bg-primary)' }}>
       <div
-        className="pointer-events-none absolute -top-28 left-0 h-[24rem] w-[24rem] rounded-full blur-3xl"
-        style={{ background: 'rgba(16,185,129,0.12)' }}
+        className="pointer-events-none absolute -top-36 left-[-7rem] h-[22rem] w-[22rem]"
+        style={{
+          background: 'radial-gradient(circle at center, rgba(16,185,129,0.14) 0%, rgba(16,185,129,0.03) 55%, transparent 72%)',
+        }}
       />
       <div
-        className="pointer-events-none absolute -bottom-24 right-0 h-[22rem] w-[22rem] rounded-full blur-3xl"
-        style={{ background: 'rgba(59,130,246,0.12)' }}
+        className="pointer-events-none absolute -bottom-32 right-[-6rem] h-[20rem] w-[20rem]"
+        style={{
+          background: 'radial-gradient(circle at center, rgba(59,130,246,0.14) 0%, rgba(59,130,246,0.03) 56%, transparent 72%)',
+        }}
       />
 
-      <div className="relative mx-auto min-h-screen w-full max-w-6xl border-x border-white/[0.04]">
+      <div className="relative mx-auto min-h-[100dvh] w-full max-w-6xl border-x border-white/[0.04]">
         {/* Role indicator pill — always visible */}
         <div className="fixed right-4 top-3 z-50 pointer-events-none sm:right-6 lg:right-10">
           <span

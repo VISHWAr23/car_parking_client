@@ -37,7 +37,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
+    <div className="relative min-h-[100dvh] overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
       <div
         className="pointer-events-none absolute -left-28 -top-24 h-[24rem] w-[24rem] rounded-full blur-3xl"
         style={{ background: 'rgba(59,130,246,0.18)' }}

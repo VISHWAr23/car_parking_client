@@ -50,6 +50,10 @@
     font-family: 'DM Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto;
+    overscroll-behavior-y: auto;
+    touch-action: pan-y pinch-zoom;
   }
 
   /* Hide scrollbar but keep scroll */
@@ -146,6 +150,21 @@
   @media (min-width: 1024px) {
     .with-bottom-nav-padding {
       padding-bottom: calc(var(--bottom-nav-height-desktop) + 20px);
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .animate-pulse-ring {
+      animation-duration: 2.6s;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
     }
   }
 }

@@ -11,7 +11,7 @@ export default function HistoryPage() {
   const totalToday = history.reduce((acc, h) => acc + (h.rentAmount ?? 0), 0)
 
   return (
-    <div className="flex flex-col min-h-screen" style={{ background: 'var(--bg-primary)' }}>
+    <div className="flex min-h-[100dvh] flex-col" style={{ background: 'var(--bg-primary)' }}>
       <PageHeader eyebrow="Session Log" title="History">
         {history.length > 0 && (
           <div

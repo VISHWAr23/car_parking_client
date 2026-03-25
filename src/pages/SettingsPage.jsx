@@ -81,7 +81,7 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen" style={{ background: 'var(--bg-primary)' }}>
+    <div className="flex min-h-[100dvh] flex-col" style={{ background: 'var(--bg-primary)' }}>
       <PageHeader eyebrow="Configuration" title="Settings" />
 
       <div className="with-bottom-nav-padding mx-auto flex w-full max-w-5xl flex-1 flex-col gap-5 px-4 pt-5 sm:px-6 lg:px-8">

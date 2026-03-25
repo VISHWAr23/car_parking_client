@@ -21,8 +21,8 @@ export default function BottomNav() {
         style={{
           background: 'rgba(13, 17, 23, 0.92)',
           border: '1px solid var(--border-default)',
-          boxShadow: '0 12px 32px rgba(0,0,0,0.34)',
-          backdropFilter: 'blur(10px)',
+          boxShadow: '0 10px 24px rgba(0,0,0,0.28)',
+          backdropFilter: 'blur(6px)',
         }}
       >
         {NAV_ITEMS.map(({ id, label, Icon }) => {
@@ -55,8 +55,8 @@ export default function BottomNav() {
           style={{
             background: 'rgba(13, 17, 23, 0.92)',
             border: '1px solid var(--border-default)',
-            boxShadow: '0 14px 34px rgba(0,0,0,0.34)',
-            backdropFilter: 'blur(10px)',
+            boxShadow: '0 12px 28px rgba(0,0,0,0.3)',
+            backdropFilter: 'blur(8px)',
           }}
         >
           {NAV_ITEMS.map(({ id, label, Icon }) => {

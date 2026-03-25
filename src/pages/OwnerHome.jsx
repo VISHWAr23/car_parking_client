@@ -23,7 +23,7 @@ export default function OwnerHome() {
     status === 'warning'  ? 'amber' : 'green'
 
   return (
-    <div className="flex flex-col min-h-screen" style={{ background: 'var(--bg-primary)' }}>
+    <div className="flex min-h-[100dvh] flex-col" style={{ background: 'var(--bg-primary)' }}>
       <PageHeader eyebrow="Admin View" title="Dashboard">
         <span
           className="text-[10px] font-bold px-2.5 py-1 rounded-full"

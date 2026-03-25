@@ -9,11 +9,11 @@ export default function PageHeader({ eyebrow, title, children, className }) {
     <header
       className={cx(
         'sticky top-0 z-30 px-4 pb-4 pt-10 sm:px-6 sm:pt-11 lg:px-8',
-        'backdrop-blur-xl',
+        'backdrop-blur-sm lg:backdrop-blur-xl',
         className,
       )}
       style={{
-        background: 'rgba(3,7,18,0.85)',
+        background: 'rgba(3,7,18,0.9)',
         borderBottom: '1px solid var(--border-subtle)',
       }}
     >

@@ -27,7 +27,7 @@ export default function LaborerHome() {
                             'text-emerald-400'
 
   return (
-    <div className="flex flex-col min-h-screen" style={{ background: 'var(--bg-primary)' }}>
+    <div className="flex min-h-[100dvh] flex-col" style={{ background: 'var(--bg-primary)' }}>
       <PageHeader eyebrow="Operations Console" title="ParkOS">
         <div className="text-right">
           <p className="text-[10px] text-[var(--text-muted)] uppercase tracking-widest">{clock}</p>
